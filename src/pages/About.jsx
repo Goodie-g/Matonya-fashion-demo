@@ -18,9 +18,10 @@ export default function About() {
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="max-w-3xl mx-auto">
           <p className="text-lg leading-loose text-ink mb-8">
-            {BRAND.name} — Swahili for "roots" — began in a small {BRAND.city} workshop
-            with a simple belief: Tanzanians deserve well-made clothing without
-            importing it or overpaying for it.
+            {BRAND.name} is a family name — and this label is built the way family
+            things are built: carefully, locally, and to last. We began in a small
+            {' '}{BRAND.city} workshop with a simple belief: Tanzanians deserve
+            well-made clothing without importing it or overpaying for it.
           </p>
 
           <p className="text-[15px] leading-loose text-smoke mb-6">

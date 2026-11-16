@@ -55,8 +55,8 @@ export default function AdminDashboard() {
                   className="flex items-center justify-between px-5 py-3 hover:bg-sand"
                 >
                   <div>
-                    <p className="text-sm font-semibold">{o.order_number}</p>
-                    <p className="text-xs text-smoke">{o.customer_name} · {formatDateTime(o.created_at)}</p>
+                    <p className="text-sm font-semibold">{o.customer_name}</p>
+                    <p className="text-xs text-smoke">{o.order_number} · {formatDateTime(o.created_at)}</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 ${statusStyles[o.status] || 'bg-sand'}`}>

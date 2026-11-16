@@ -12,8 +12,8 @@ export default function Footer() {
           <div>
             <h3 className="font-display text-xl mb-4">{BRAND.name}</h3>
             <p className="text-sm text-smoke max-w-[280px] leading-relaxed">
-              Quality menswear rooted in Tanzania. Crafted in {BRAND.city},
-              delivered nationwide — from Dodoma to Zanzibar.
+              Modern Tanzanian fashion, crafted in {BRAND.city} and delivered
+              nationwide — from Dodoma to Zanzibar.
             </p>
           </div>
 

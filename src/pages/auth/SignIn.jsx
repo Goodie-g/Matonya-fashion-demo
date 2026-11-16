@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useState } from 'react'
 import { useAuth } from '../../context/AuthContext'
+import { DEMO } from '../../lib/constants'
 
 const schema = z.object({
   email: z.string().email('Enter a valid email'),
@@ -17,9 +18,14 @@ export default function SignIn() {
   const [error, setError] = useState('')
   const from = location.state?.from || '/account'
 
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
+  const { register, handleSubmit, setValue, formState: { errors, isSubmitting } } = useForm({
     resolver: zodResolver(schema),
   })
+
+  const useDemoAccount = (email) => {
+    setValue('email', email, { shouldValidate: true })
+    setValue('password', DEMO.password, { shouldValidate: true })
+  }
 
   const onSubmit = async (values) => {
     setError('')
@@ -40,6 +46,33 @@ export default function SignIn() {
         No account yet?{' '}
         <Link to="/sign-up" className="underline text-ink">Create one</Link>
       </p>
+
+      <div className="border border-linen bg-sand p-4 mb-6">
+        <p className="text-[11px] font-semibold uppercase tracking-wider text-smoke mb-2">
+          Demo accounts
+        </p>
+        <p className="text-xs text-smoke leading-relaxed mb-3">
+          This is a portfolio demo. Use one of the seeded accounts below — no
+          real payments are taken.
+        </p>
+        <div className="flex flex-col gap-2">
+          <button
+            type="button"
+            onClick={() => useDemoAccount(DEMO.customerEmail)}
+            className="text-left text-xs border border-linen bg-white px-3 py-2 hover:border-ink"
+          >
+            <span className="font-semibold">Customer</span> · {DEMO.customerEmail}
+          </button>
+          <button
+            type="button"
+            onClick={() => useDemoAccount(DEMO.adminEmail)}
+            className="text-left text-xs border border-linen bg-white px-3 py-2 hover:border-ink"
+          >
+            <span className="font-semibold">Admin</span> · {DEMO.adminEmail}
+          </button>
+        </div>
+        <p className="text-[11px] text-smoke mt-2">Password: {DEMO.password}</p>
+      </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>

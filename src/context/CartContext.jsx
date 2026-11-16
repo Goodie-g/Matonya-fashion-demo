@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 const CartContext = createContext(null)
 export const useCart = () => useContext(CartContext)
 
-const STORAGE_KEY = 'mizizi-cart'
+const STORAGE_KEY = 'matonya-cart'
 
 // A cart line is keyed by variant_id — the exact sellable SKU —
 // which is what checkout and stock deduction need.

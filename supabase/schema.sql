@@ -1,5 +1,5 @@
 -- ============================================================
--- Mizizi — Tanzanian e-commerce schema (Supabase / PostgreSQL)
+-- Matonya — Tanzanian fashion e-commerce schema (Supabase / PostgreSQL)
 -- Run this file in the Supabase SQL Editor first, then seed.sql.
 --
 -- Business data lives here (products, variants, orders, inventory).
@@ -33,7 +33,8 @@ begin
     coalesce(new.raw_user_meta_data ->> 'full_name', ''),
     new.email,
     coalesce(new.raw_user_meta_data ->> 'phone', '')
-  );
+  )
+  on conflict (id) do nothing;
   return new;
 end;
 $$;
@@ -43,7 +44,9 @@ create trigger on_auth_user_created
   after insert on auth.users
   for each row execute function public.handle_new_user();
 
--- Prevent users from promoting themselves to admin.
+-- Prevent signed-in users from promoting themselves to admin.
+-- Service-role / SQL-editor changes (auth.uid() is null) are allowed,
+-- which is how the demo admin account is created in seed.sql.
 create or replace function public.prevent_role_escalation()
 returns trigger
 language plpgsql
@@ -52,7 +55,11 @@ set search_path = public
 as $$
 begin
   if new.role is distinct from old.role
-     and not exists (select 1 from public.profiles where id = auth.uid() and role = 'admin') then
+     and auth.uid() is not null
+     and not exists (
+       select 1 from public.profiles
+       where id = auth.uid() and role = 'admin'
+     ) then
     raise exception 'Only an admin can change roles';
   end if;
   return new;
@@ -218,7 +225,7 @@ create table if not exists public.expenses (
   created_at  timestamptz not null default now()
 );
 
--- Payment records. MVP uses COD / manual mobile-money confirmation.
+-- Payment records. The demo uses COD / manual mobile-money confirmation.
 -- The `provider` + `reference` columns are the seam where a real
 -- gateway (e.g. a Tanzanian mobile-money aggregator) plugs in later.
 create table if not exists public.payments (
@@ -238,7 +245,7 @@ create table if not exists public.payments (
 -- place_order: the entire checkout in one transaction.
 -- Prices and stock are read from the database (never trusted from the
 -- client). Validates stock, creates order + items, decrements stock,
--- and logs an inventory movement per item.
+-- logs an inventory movement per item, and records a payment.
 create or replace function public.place_order(
   p_customer_name  text,
   p_phone          text,
@@ -282,6 +289,7 @@ begin
       from public.product_variants pv
       join public.products p on p.id = pv.product_id
      where pv.id = (v_item ->> 'variant_id')::bigint
+       and p.is_active
      for update of pv;
 
     if not found then
@@ -303,7 +311,7 @@ begin
   end;
   v_total := v_subtotal + v_delivery;
 
-  v_number := 'MZ-' || lpad(nextval('public.order_number_seq')::text, 5, '0');
+  v_number := 'MT-' || lpad(nextval('public.order_number_seq')::text, 5, '0');
 
   insert into public.orders (
     order_number, user_id, customer_name, phone, email,
@@ -346,6 +354,9 @@ begin
     insert into public.inventory_movements (variant_id, change, reason, order_id, created_by)
     values (v_variant.id, -v_qty, 'order', v_order_id, auth.uid());
   end loop;
+
+  insert into public.payments (order_id, provider, amount, status)
+  values (v_order_id, p_payment_method, v_total, 'pending');
 
   return jsonb_build_object(
     'order_id',     v_order_id,
@@ -413,41 +424,55 @@ alter table public.expenses             enable row level security;
 alter table public.payments             enable row level security;
 
 -- profiles: users see/edit themselves; admins see everything.
+drop policy if exists "profiles select own" on public.profiles;
 create policy "profiles select own" on public.profiles
   for select using (id = auth.uid() or public.is_admin());
+drop policy if exists "profiles update own" on public.profiles;
 create policy "profiles update own" on public.profiles
   for update using (id = auth.uid()) with check (id = auth.uid());
 
 -- catalog: public can browse the storefront; only admins manage it.
+drop policy if exists "categories public read" on public.categories;
 create policy "categories public read" on public.categories
   for select using (true);
+drop policy if exists "categories admin write" on public.categories;
 create policy "categories admin write" on public.categories
   for all using (public.is_admin()) with check (public.is_admin());
 
+drop policy if exists "products public read active" on public.products;
 create policy "products public read active" on public.products
   for select using (is_active or public.is_admin());
+drop policy if exists "products admin write" on public.products;
 create policy "products admin write" on public.products
   for all using (public.is_admin()) with check (public.is_admin());
 
+drop policy if exists "variants public read" on public.product_variants;
 create policy "variants public read" on public.product_variants
   for select using (true);
+drop policy if exists "variants admin write" on public.product_variants;
 create policy "variants admin write" on public.product_variants
   for all using (public.is_admin()) with check (public.is_admin());
 
+drop policy if exists "images public read" on public.product_images;
 create policy "images public read" on public.product_images
   for select using (true);
+drop policy if exists "images admin write" on public.product_images;
 create policy "images admin write" on public.product_images
   for all using (public.is_admin()) with check (public.is_admin());
 
 -- orders: customers read their own; admins read/update all.
 -- No direct insert policy — orders are created only through place_order().
+drop policy if exists "orders select own or admin" on public.orders;
 create policy "orders select own or admin" on public.orders
   for select using (user_id = auth.uid() or public.is_admin());
+drop policy if exists "orders admin update" on public.orders;
 create policy "orders admin update" on public.orders
   for update using (public.is_admin()) with check (public.is_admin());
+drop policy if exists "orders admin delete" on public.orders;
 create policy "orders admin delete" on public.orders
   for delete using (public.is_admin());
 
+drop policy if exists "order items select own or admin" on public.order_items;
 create policy "order items select own or admin" on public.order_items
   for select using (
     public.is_admin()
@@ -458,14 +483,18 @@ create policy "order items select own or admin" on public.order_items
   );
 
 -- inventory history & finance: admin only.
+drop policy if exists "movements admin all" on public.inventory_movements;
 create policy "movements admin all" on public.inventory_movements
   for all using (public.is_admin()) with check (public.is_admin());
 
+drop policy if exists "expenses admin all" on public.expenses;
 create policy "expenses admin all" on public.expenses
   for all using (public.is_admin()) with check (public.is_admin());
 
+drop policy if exists "payments admin all" on public.payments;
 create policy "payments admin all" on public.payments
   for all using (public.is_admin()) with check (public.is_admin());
+drop policy if exists "payments select own order" on public.payments;
 create policy "payments select own order" on public.payments
   for select using (
     exists (
@@ -476,10 +505,10 @@ create policy "payments select own order" on public.payments
 
 -- ------------------------------------------------------------
 -- SETUP CHECKLIST (after running this file):
---   1. Run supabase/seed.sql to load the demo catalog.
---   2. Sign up in the app, then promote yourself to admin:
---        update public.profiles set role = 'admin'
---        where email = 'you@example.com';
+--   1. Run supabase/seed.sql to load the demo catalog, users and orders.
+--   2. Demo logins (created by the seed):
+--        admin@matonya.co.tz / Matonya2026!   (admin)
+--        demo@matonya.co.tz  / Matonya2026!   (customer)
 --   3. Product images: seed data uses external URLs so the demo
 --      works immediately. For production, upload images to a
 --      public Supabase Storage bucket (e.g. "product-images")

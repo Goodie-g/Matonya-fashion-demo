@@ -27,7 +27,7 @@ export default function Home() {
               {BRAND.name} — {BRAND.city}
             </p>
             <h1 className="font-display text-[clamp(2.5rem,5vw,4rem)] text-white leading-[1.1] mb-6">
-              Quality clothing, rooted in Tanzania.
+              Modern clothing, made in Tanzania.
             </h1>
             <p className="text-white/85 leading-relaxed mb-8 max-w-md">
               From kitenge shirts to everyday essentials — well-made pieces
@@ -118,8 +118,8 @@ export default function Home() {
             <p className="text-smoke leading-relaxed mb-8">
               We source kitenge from Kariakoo's finest traders, leather from
               Mwanza workshops, and cotton that stands up to the coastal heat.
-              Every piece is made to work hard and look sharp — from the office
-              in Dodoma to weekends in Zanzibar.
+              Every {BRAND.name} piece is made to work hard and look sharp —
+              from the office in Dodoma to weekends in Zanzibar.
             </p>
             <Link
               to="/about"

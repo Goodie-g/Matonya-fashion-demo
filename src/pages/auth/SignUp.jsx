@@ -39,9 +39,13 @@ export default function SignUp() {
   return (
     <div className="mx-auto max-w-sm px-6 py-20">
       <h1 className="text-3xl mb-2">Create Account</h1>
-      <p className="text-sm text-smoke mb-8">
+      <p className="text-sm text-smoke mb-6">
         Already registered?{' '}
         <Link to="/sign-in" className="underline text-ink">Sign in</Link>
+      </p>
+
+      <p className="text-xs text-smoke border border-linen bg-sand px-3 py-2.5 mb-6">
+        Demo store — accounts you create here only exist in this demo database.
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

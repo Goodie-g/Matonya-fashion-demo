@@ -12,7 +12,7 @@ export default function Sale() {
           Limited Time
         </p>
         <h1 className="text-[clamp(1.75rem,4vw,2.5rem)] text-white mb-3">
-          The Mizizi Sale
+          The Matonya Sale
         </h1>
         <p className="text-white/80 max-w-lg leading-relaxed">
           Markdowns on select styles while sizes last. No code needed —

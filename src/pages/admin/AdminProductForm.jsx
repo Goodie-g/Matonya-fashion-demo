@@ -89,7 +89,7 @@ export default function AdminProductForm() {
   const suggestSku = (index) => {
     const color = watch(`variants.${index}.color`) || ''
     const size = watch(`variants.${index}.size`) || ''
-    const prefix = 'MZ-' + (slugify(nameValue).split('-').map(w => w[0]).join('').slice(0, 3) || 'PRD').toUpperCase()
+    const prefix = 'MT-' + (slugify(nameValue).split('-').map(w => w[0]).join('').slice(0, 3) || 'PRD').toUpperCase()
     const c = color.replace(/[^A-Za-z]/g, '').slice(0, 3).toUpperCase()
     const s = size.replace(/[^A-Za-z0-9]/g, '').toUpperCase()
     if (c && s) setValue(`variants.${index}.sku`, `${prefix}-${c}-${s}`)

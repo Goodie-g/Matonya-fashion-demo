@@ -1,11 +1,19 @@
 // Brand & business constants — single place to rebrand the store.
 export const BRAND = {
-  name: 'Mizizi',
-  tagline: 'Rooted in Tanzania',
+  name: 'Matonya',
+  tagline: 'Tailored in Tanzania',
   city: 'Dar es Salaam',
   phone: '+255 712 345 678',
   whatsapp: '255712345678',
-  email: 'hello@mizizi.co.tz',
+  email: 'hello@matonya.co.tz',
+}
+
+// Demo login details shown on the sign-in screen. These accounts are
+// created by supabase/seed.sql — change or remove them before production.
+export const DEMO = {
+  adminEmail: 'admin@matonya.co.tz',
+  customerEmail: 'demo@matonya.co.tz',
+  password: 'Matonya2026!',
 }
 
 // All 31 regions of Tanzania (mainland + Zanzibar).

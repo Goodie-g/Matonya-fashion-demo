@@ -23,8 +23,8 @@ export default function AdminOrderDetail() {
 
       <div className="flex flex-wrap justify-between items-start gap-4 mt-3 mb-6">
         <div>
-          <h2 className="font-display text-2xl">{order.order_number}</h2>
-          <p className="text-xs text-smoke">Placed {formatDateTime(order.created_at)}</p>
+          <h2 className="font-display text-2xl">{order.customer_name}</h2>
+          <p className="text-xs text-smoke">{order.order_number} · Placed {formatDateTime(order.created_at)}</p>
         </div>
         <div className="flex gap-3">
           <div>
