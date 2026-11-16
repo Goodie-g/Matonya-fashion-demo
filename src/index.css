@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #faf8f5;
+  --color-sand: #f0ede8;
+  --color-ink: #1a1a1a;
+  --color-smoke: #6b6560;
+  --color-linen: #e0dcd5;
+  --color-sale: #c44536;
+  --color-success: #3a5a40;
+  --color-accent: #2c2c2c;
+
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", -apple-system, ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  @apply bg-cream text-ink font-sans antialiased;
+}
+
+h1, h2, h3 {
+  @apply font-display font-medium;
+}
