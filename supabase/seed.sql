@@ -510,8 +510,8 @@ begin
     35000, null, array['bestseller'],
     array['Red Check', 'Blue Check'], array['One Size'],
     array[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Rubega%20(%20a%20maasai%20cloth).jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Masaai%20blankets%20at%20the%20Maasai%20market.%20Nairobi%20Kenya.jpg?width=800'
+      'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Rubega_%28_a_maasai_cloth%29.jpg/960px-Rubega_%28_a_maasai_cloth%29.jpg',
+      'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Masaai_blankets_at_the_Maasai_market._Nairobi_Kenya.jpg/960px-Masaai_blankets_at_the_Maasai_market._Nairobi_Kenya.jpg'
     ],
     'The iconic Maasai shuka, woven soft and sized as a home throw or travel wrap. A piece of Tanzania, wherever you are.',
     array[
@@ -528,8 +528,8 @@ begin
     18000, 25000, array['sale'],
     array['Coral', 'Turquoise', 'Sunset'], array['One Size'],
     array[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Kanga%20leso%20Kenya%2001.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/A%20woman%20carries%20objects%20on%20the%20beaches%20of%20Zanzibar.jpg?width=800'
+      'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Kanga_leso_Kenya_01.jpg/960px-Kanga_leso_Kenya_01.jpg',
+      'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/A_woman_carries_objects_on_the_beaches_of_Zanzibar.jpg/960px-A_woman_carries_objects_on_the_beaches_of_Zanzibar.jpg'
     ],
     'Classic Zanzibar kanga with a printed jina message. Beach wrap, head scarf, picnic cloth — the most versatile thing you own.',
     array[
@@ -582,8 +582,8 @@ begin
     array['Sand', 'Navy', 'Rust', 'Ocean'],
     array['130 x 180 cm', '150 x 200 cm'],
     array[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Colorful%20Kikoi%20Shukas.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/KIKOI%20AND%20WRAP.JPG?width=800'
+      'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Colorful_Kikoi_Shukas.jpg/960px-Colorful_Kikoi_Shukas.jpg',
+      'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/KIKOI_AND_WRAP.JPG/960px-KIKOI_AND_WRAP.JPG'
     ],
     'Handwoven kikoi cloth from the East African coast, finished with a hand-knotted fringe. A throw for the sofa, a wrap for the beach, a blanket for Sunday afternoons.',
     array[
@@ -671,7 +671,7 @@ begin
     15000, null, array['bestseller'],
     array['Red', 'Blue'], array['One Size'],
     array[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Bracelet%2011-o.lau-F180.LA1029.jpg?width=800'
+      'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Bracelet_11-o.lau-F180.LA1029.jpg/960px-Bracelet_11-o.lau-F180.LA1029.jpg'
     ],
     'A hand-beaded glass cuff, made by Maasai artisans in small batches. Wide enough to be noticed, light enough to forget you have it on.',
     array[
