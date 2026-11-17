@@ -12,6 +12,15 @@ export default function ShopAll() {
     return (products || []).filter(p => p.categorySlug === category)
   }, [products, category])
 
+  // Only advertise categories that actually have something in them.
+  const inStockCategories = useMemo(() => {
+    const counts = new Map()
+    ;(products || []).forEach(p => {
+      counts.set(p.categorySlug, (counts.get(p.categorySlug) || 0) + 1)
+    })
+    return (categories || []).filter(c => counts.has(c.slug))
+  }, [products, categories])
+
   return (
     <div className="mx-auto max-w-7xl px-6 pt-12 pb-20">
       <div className="mb-10">
@@ -28,7 +37,7 @@ export default function ShopAll() {
           active={category === 'all'}
           onClick={() => setCategory('all')}
         />
-        {(categories || []).map(c => (
+        {inStockCategories.map(c => (
           <FilterChip
             key={c.slug}
             label={c.name}

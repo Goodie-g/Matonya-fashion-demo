@@ -510,7 +510,8 @@ begin
     35000, null, array['bestseller'],
     array['Red Check', 'Blue Check'], array['One Size'],
     array[
-      'https://images.unsplash.com/photo-1520975954732-35dd22299614?w=800&q=80'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Rubega%20(%20a%20maasai%20cloth).jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Masaai%20blankets%20at%20the%20Maasai%20market.%20Nairobi%20Kenya.jpg?width=800'
     ],
     'The iconic Maasai shuka, woven soft and sized as a home throw or travel wrap. A piece of Tanzania, wherever you are.',
     array[
@@ -527,7 +528,8 @@ begin
     18000, 25000, array['sale'],
     array['Coral', 'Turquoise', 'Sunset'], array['One Size'],
     array[
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kanga%20leso%20Kenya%2001.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/A%20woman%20carries%20objects%20on%20the%20beaches%20of%20Zanzibar.jpg?width=800'
     ],
     'Classic Zanzibar kanga with a printed jina message. Beach wrap, head scarf, picnic cloth — the most versatile thing you own.',
     array[
@@ -575,21 +577,22 @@ begin
   );
 
   perform public.seed_product(
-    'Kikoi Lounge Shorts', 'kikoi-lounge-shorts', 'shorts',
+    'Kikoi Throw', 'kikoi-throw', 'kitenge',
     32000, null, array['new'],
-    array['Sand', 'Navy'], array['S', 'M', 'L', 'XL'],
+    array['Sand', 'Navy', 'Rust', 'Ocean'],
+    array['130 x 180 cm', '150 x 200 cm'],
     array[
-      'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&q=80',
-      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&q=80'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Colorful%20Kikoi%20Shukas.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/KIKOI%20AND%20WRAP.JPG?width=800'
     ],
-    'Woven kikoi shorts with an elastic drawcord waist. Built for long lunches, beach days and everything after.',
+    'Handwoven kikoi cloth from the East African coast, finished with a hand-knotted fringe. A throw for the sofa, a wrap for the beach, a blanket for Sunday afternoons.',
     array[
       'Handwoven cotton kikoi',
-      'Relaxed fit with drawcord waist',
-      'Two side pockets',
-      'Unlined for the heat'
+      'Hand-knotted fringe',
+      '130 x 180 cm or 150 x 200 cm',
+      'Machine wash cold, line dry'
     ],
-    'MT-SHO', 38, 6
+    'MT-KIK', 38, 6
   );
 
   perform public.seed_product(
@@ -664,17 +667,17 @@ begin
   );
 
   perform public.seed_product(
-    'Beaded Maasai Bracelet Set', 'beaded-maasai-bracelet-set', 'accessories',
+    'Beaded Maasai Cuff', 'beaded-maasai-cuff', 'accessories',
     15000, null, array['bestseller'],
     array['Red', 'Blue'], array['One Size'],
     array[
-      'https://images.unsplash.com/photo-1520975954732-35dd22299614?w=800&q=80'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Bracelet%2011-o.lau-F180.LA1029.jpg?width=800'
     ],
-    'A set of three hand-beaded bracelets from Maasai artisans. Every colourway is made in small batches.',
+    'A hand-beaded glass cuff, made by Maasai artisans in small batches. Wide enough to be noticed, light enough to forget you have it on.',
     array[
       'Hand-beaded glass beads',
-      'Set of three bracelets',
-      'Adjustable leather tie',
+      'Wide 6 cm cuff',
+      'Leather-lined interior',
       'Fair-trade artisan made'
     ],
     'MT-BRA', 60, 32
@@ -841,7 +844,7 @@ begin
     'Dar es Salaam', 'Mikocheni', '12 Mikocheni B, near Warioba',
     'delivered', 'mpesa', 'paid', now() - interval '17 days',
     '[{"slug":"linen-safari-shirt","color":"Sand","size":"L","quantity":1},
-      {"slug":"kikoi-lounge-shorts","color":"Navy","size":"M","quantity":1}]'::jsonb
+      {"slug":"kikoi-throw","color":"Ocean","size":"130 x 180 cm","quantity":1}]'::jsonb
   );
 
   perform public.seed_demo_order(
@@ -866,7 +869,7 @@ begin
     'Arusha', 'Njiro', 'Njiro Road, Block C',
     'processing', 'tigopesa', 'paid', now() - interval '9 days',
     '[{"slug":"dashiki-print-shirt","color":"Midnight","size":"L","quantity":1},
-      {"slug":"beaded-maasai-bracelet-set","color":"Red","size":"One Size","quantity":2}]'::jsonb
+      {"slug":"beaded-maasai-cuff","color":"Red","size":"One Size","quantity":2}]'::jsonb
   );
 
   perform public.seed_demo_order(
@@ -921,7 +924,7 @@ begin
     'Dar es Salaam', 'Kinondoni', 'Mpakani Street, Kinondoni',
     'delivered', 'mpesa', 'paid', now() - interval '1 day',
     '[{"slug":"woven-leather-belt","color":"Dark Brown","size":"L","quantity":1},
-      {"slug":"beaded-maasai-bracelet-set","color":"Blue","size":"One Size","quantity":1},
+      {"slug":"beaded-maasai-cuff","color":"Blue","size":"One Size","quantity":1},
       {"slug":"canvas-weekender-bag","color":"Black","size":"One Size","quantity":1}]'::jsonb
   );
 

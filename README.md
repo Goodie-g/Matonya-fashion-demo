@@ -113,7 +113,7 @@ re-run both files.
 | Categories          | 9    |
 | Products            | 21   |
 | Product variants    | 192  |
-| Product images      | 37   |
+| Product images      | 39   |
 | Accounts            | 7    |
 | Orders              | 16   |
 | Order items         | 32   |
@@ -131,9 +131,25 @@ the admin alerts and storefront sold-out states are demonstrable:
 - `MT-TEE-WHI-M` — 3 in stock
 - `MT-DEN-IND-L` — 3 in stock
 
-Images are external Unsplash URLs so the demo works with no storage setup.
-For a real deployment, upload to a public Supabase Storage bucket and store
-those URLs instead.
+Images are external URLs, so the demo works with no storage setup: mostly
+Unsplash for the garments plus Wikimedia Commons for the East African textiles
+and beadwork (credits below). For a real deployment, upload to a public
+Supabase Storage bucket and store those URLs instead.
+
+### Image credits
+
+The Maasai shuka, kanga, kikoi and beaded cuff photos come from Wikimedia
+Commons and are used under their respective licences:
+
+| Product | File | Author | Licence |
+| ------- | ---- | ------ | ------- |
+| Maasai Shuka Throw | [Rubega (a maasai cloth)](https://commons.wikimedia.org/wiki/File:Rubega_(_a_maasai_cloth).jpg) | Rosemary S Haule | CC0 |
+| Maasai Shuka Throw | [Masaai blankets at the Maasai market, Nairobi](https://commons.wikimedia.org/wiki/File:Masaai_blankets_at_the_Maasai_market._Nairobi_Kenya.jpg) | Laurakomanga | CC BY-SA 4.0 |
+| Kanga Beach Wrap | [Kanga leso Kenya 01](https://commons.wikimedia.org/wiki/File:Kanga_leso_Kenya_01.jpg) | Avocado isl | CC BY-SA 4.0 |
+| Kanga Beach Wrap | [A woman carries objects on the beaches of Zanzibar](https://commons.wikimedia.org/wiki/File:A_woman_carries_objects_on_the_beaches_of_Zanzibar.jpg) | Stechouse42 | CC BY-SA 4.0 |
+| Kikoi Throw | [Colorful Kikoi Shukas](https://commons.wikimedia.org/wiki/File:Colorful_Kikoi_Shukas.jpg) | Chancebandit | CC BY-SA 4.0 |
+| Kikoi Throw | [KIKOI AND WRAP](https://commons.wikimedia.org/wiki/File:KIKOI_AND_WRAP.JPG) | Selly Awuor | CC BY-SA 4.0 |
+| Beaded Maasai Cuff | [Bracelet 11-o.lau-F180.LA1029](https://commons.wikimedia.org/wiki/File:Bracelet_11-o.lau-F180.LA1029.jpg) | Simon Pierre Barrette | CC BY-SA 4.0 |
 
 ---
 
