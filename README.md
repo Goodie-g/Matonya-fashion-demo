@@ -74,6 +74,15 @@ inventory adjustment, products and expenses.
 
 ---
 
+## Design system
+
+The visual language — colour tokens, type scale, spacing, component recipes and
+accessibility notes — is documented in [`DESIGN.md`](DESIGN.md). Tokens are
+defined once in the `@theme` block of `src/index.css` and consumed as Tailwind
+utilities (`bg-cream`, `text-smoke`, `border-linen`, `font-display`).
+
+---
+
 ## Database setup
 
 The schema and demo data live in `supabase/`:
