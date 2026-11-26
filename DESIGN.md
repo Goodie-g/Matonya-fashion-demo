@@ -168,6 +168,9 @@ No entrance animations, parallax or scroll effects.
 Rules: sentence-case labels only ("Add to Cart", "Shop All"); no rounded
 corners; outlined buttons are reserved for variant selectors and utility
 actions (e.g. the demo-account quick-fill buttons), not secondary CTAs.
+Cursor affordance is global: `button:not(:disabled)` and `[role="button"]`
+get `cursor: pointer`, while disabled controls get `cursor: not-allowed`
+(declared in the base layer of `src/index.css`).
 
 ### 3.2 Badges, chips & pills
 

@@ -21,3 +21,24 @@ body {
 h1, h2, h3 {
   @apply font-display font-medium;
 }
+
+/* Native buttons render with the default arrow cursor once preflight strips the
+   UA styling. Give every interactive control a clear affordance, and keep
+   disabled controls honest. Utilities still override these if needed. */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  input[type="button"]:not(:disabled),
+  input[type="submit"]:not(:disabled),
+  input[type="reset"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [role="button"][aria-disabled="true"],
+  input[type="button"]:disabled,
+  input[type="submit"]:disabled,
+  input[type="reset"]:disabled {
+    cursor: not-allowed;
+  }
+}
