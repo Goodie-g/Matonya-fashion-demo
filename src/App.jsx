@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import CartDrawer from './components/CartDrawer'
+import ScrollToTop from './components/ScrollToTop'
 import { RequireAdmin, RequireAuth } from './components/RouteGuards'
 import Home from './pages/Home'
 import ShopAll from './pages/ShopAll'
@@ -29,6 +30,7 @@ import AdminExpenses from './pages/admin/AdminExpenses'
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollToTop />
       <Navbar />
       <main className="flex-1">
         <Routes>
