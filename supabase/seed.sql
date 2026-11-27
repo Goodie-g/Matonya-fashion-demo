@@ -474,8 +474,8 @@ begin
     85000, null, array['bestseller'],
     array['Indigo', 'Black'], array['S', 'M', 'L', 'XL', '2XL'],
     array[
-      'https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=800&q=80',
-      'https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=800&q=80'
+      'https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=800&q=80',
+      'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Laughing_woman_in_jean_jacket_%28Unsplash%29.jpg/960px-Laughing_woman_in_jean_jacket_%28Unsplash%29.jpg'
     ],
     'A 12oz rigid denim trucker that breaks in beautifully. The layer for cool Njombe evenings and early-morning daladala rides.',
     array[

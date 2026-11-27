@@ -161,6 +161,7 @@ Commons and are used under their respective licences:
 | Kikoi Throw | [Colorful Kikoi Shukas](https://commons.wikimedia.org/wiki/File:Colorful_Kikoi_Shukas.jpg) | Chancebandit | CC BY-SA 4.0 |
 | Kikoi Throw | [Kikoy fabric at the Maasai Market, Nairobi](https://commons.wikimedia.org/wiki/File:Kikoy_fabric_at_the_Maasai_Market_in_Nairobi,_Kenya.jpg) | Laurakomanga | CC BY-SA 4.0 |
 | Beaded Maasai Cuff | [Bracelet 11-o.lau-F180.LA1029](https://commons.wikimedia.org/wiki/File:Bracelet_11-o.lau-F180.LA1029.jpg) | Simon Pierre Barrette | CC BY-SA 4.0 |
+| Denim Trucker Jacket | [Laughing woman in jean jacket (Unsplash)](https://commons.wikimedia.org/wiki/File:Laughing_woman_in_jean_jacket_(Unsplash).jpg) | Alex Blăjan via Unsplash | CC0 |
 
 ---
 
