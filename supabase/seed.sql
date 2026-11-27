@@ -935,6 +935,21 @@ begin
     '[{"slug":"linen-safari-shirt","color":"White","size":"M","quantity":1}]'::jsonb
   );
 
+  -- Remember each demo customer's last delivery address so checkout comes
+  -- prefilled on first use (mirrors what place_order() does on real orders).
+  update public.profiles p
+     set default_region         = o.region,
+         default_city           = o.city,
+         default_address        = o.address,
+         default_delivery_notes = o.delivery_notes
+    from (
+      select distinct on (user_id) user_id, region, city, address, delivery_notes
+        from public.orders
+       where user_id is not null
+       order by user_id, created_at desc
+    ) o
+   where p.id = o.user_id;
+
   -- ----------------------------------------------------------
   -- Extra inventory history (restock, damage, return)
   -- ----------------------------------------------------------

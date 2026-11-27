@@ -6,6 +6,7 @@ import { z } from 'zod'
 import { useCart } from '../context/CartContext'
 import { useAuth } from '../context/AuthContext'
 import { usePlaceOrder } from '../hooks/useOrders'
+import { buildDeliveryDefaults, saveDeliveryDetails } from '../lib/deliveryMemory'
 import { PAYMENT_METHODS, TZ_REGIONS, deliveryFeeFor, FREE_DELIVERY_THRESHOLD } from '../lib/constants'
 import { formatPrice } from '../lib/format'
 
@@ -37,32 +38,14 @@ export default function Checkout() {
     formState: { errors, isDirty },
   } = useForm({
     resolver: zodResolver(checkoutSchema),
-    defaultValues: {
-      customerName: profile?.full_name || '',
-      phone: profile?.phone || '',
-      email: profile?.email || '',
-      region: 'Dar es Salaam',
-      city: '',
-      address: '',
-      deliveryNotes: '',
-      paymentMethod: 'cod',
-    },
+    defaultValues: buildDeliveryDefaults(profile),
   })
 
   // Pre-fill contact details once the signed-in profile arrives,
   // but never overwrite anything the customer has already typed.
   useEffect(() => {
     if (profile && !isDirty) {
-      reset({
-        customerName: profile.full_name || '',
-        phone: profile.phone || '',
-        email: profile.email || '',
-        region: 'Dar es Salaam',
-        city: '',
-        address: '',
-        deliveryNotes: '',
-        paymentMethod: 'cod',
-      })
+      reset(buildDeliveryDefaults(profile))
     }
   }, [profile, isDirty, reset])
 
@@ -77,6 +60,9 @@ export default function Checkout() {
         ...values,
         items: items.map(i => ({ variantId: i.variantId, quantity: i.quantity })),
       })
+      // Remember these details for the next checkout (localStorage here,
+      // profile server-side via place_order).
+      saveDeliveryDetails(values)
       clearCart()
       navigate('/order-confirmation', {
         state: {

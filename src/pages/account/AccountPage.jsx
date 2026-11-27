@@ -35,6 +35,24 @@ export default function AccountPage() {
         </button>
       </div>
 
+      {profile?.default_address && (
+        <section className="mb-12">
+          <h2 className="text-xl mb-6">Saved Delivery Address</h2>
+          <div className="border border-linen bg-white p-5 text-sm leading-relaxed max-w-xl">
+            <p className="font-medium">{profile.full_name}</p>
+            {profile.phone && <p className="text-smoke">{profile.phone}</p>}
+            <p className="mt-2">{profile.default_address}</p>
+            <p className="text-smoke">{profile.default_city}, {profile.default_region}</p>
+            {profile.default_delivery_notes && (
+              <p className="text-xs text-smoke italic mt-2">“{profile.default_delivery_notes}”</p>
+            )}
+            <p className="text-xs text-smoke mt-3">
+              Used to prefill checkout — it follows your most recent order.
+            </p>
+          </div>
+        </section>
+      )}
+
       <h2 className="text-xl mb-6">Order History</h2>
 
       {isLoading ? (

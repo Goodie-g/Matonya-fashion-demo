@@ -55,6 +55,8 @@ inventory adjustment, products and expenses.
 **Storefront**
 - Home, shop, category filtering, product detail with colour/size variants
 - Cart (local storage), checkout with Tanzanian region/district delivery fees
+- Checkout remembers each customer's delivery details — prefilled from their
+  last order (localStorage for guests, saved to the profile when signed in)
 - Customer order history and profile
 - Guest checkout (no account required)
 

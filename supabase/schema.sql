@@ -16,6 +16,12 @@ create table if not exists public.profiles (
   email       text,
   phone       text,
   role        text not null default 'customer' check (role in ('customer', 'admin')),
+  -- Last delivery address, saved by place_order() so the next checkout
+  -- can be prefilled. Guests are remembered in localStorage instead.
+  default_region          text,
+  default_city            text,
+  default_address         text,
+  default_delivery_notes  text,
   created_at  timestamptz not null default now()
 );
 
@@ -325,6 +331,17 @@ begin
     v_subtotal, v_delivery, v_total
   )
   returning id into v_order_id;
+
+  -- Remember the delivery details for signed-in customers so their next
+  -- checkout comes prefilled (runs in the same transaction as the order).
+  if auth.uid() is not null then
+    update public.profiles
+       set default_region         = p_region,
+           default_city           = p_city,
+           default_address        = p_address,
+           default_delivery_notes = nullif(p_delivery_notes, '')
+     where id = auth.uid();
+  end if;
 
   -- Pass 2: order items + stock decrement + movement history.
   for v_item in select * from jsonb_array_elements(p_items) loop

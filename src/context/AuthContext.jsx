@@ -27,7 +27,7 @@ export function AuthProvider({ children }) {
     let cancelled = false
     supabase
       .from('profiles')
-      .select('id, full_name, email, phone, role')
+      .select('id, full_name, email, phone, role, default_region, default_city, default_address, default_delivery_notes')
       .eq('id', session.user.id)
       .single()
       .then(({ data }) => {
