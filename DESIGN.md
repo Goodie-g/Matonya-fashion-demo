@@ -313,8 +313,10 @@ Content headings `font-display text-2xl mb-6`.
 Three layouts in use:
 
 1. **Image hero** — `relative h-[85vh] min-h-[600px]` (About: `h-[50vh]
-   min-h-[400px]`), full-bleed `object-cover` image, `bg-gradient-to-r
-   from-black/60 to-black/10`, white copy, eyebrow
+   min-h-[400px]`), full-bleed `object-cover` image (Home pins focus with
+   `object-[50%_30%]`), dark gradient scrim — Home:
+   `bg-gradient-to-r from-black/70 via-black/45 to-black/10`, About:
+   `from-black/60 to-black/20` — white copy, eyebrow
    `text-xs … tracking-[0.15em] text-white/80`.
 2. **Solid promo band** — `bg-accent text-white p-12` with white/80 body copy.
 3. **Muted story band** — `bg-sand py-20`, two-column image + copy, standard

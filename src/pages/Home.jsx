@@ -16,11 +16,11 @@ export default function Home() {
       {/* Hero — marketing content like this moves to Sanity in the CMS phase */}
       <section className="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1520975954732-35dd22299614?w=1600&q=80"
-          alt="Man wearing a Maasai shuka"
-          className="absolute inset-0 w-full h-full object-cover"
+          src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/African_print_brothers.jpg/1280px-African_print_brothers.jpg"
+          alt="Two men laughing in modern kitenge-print shirts"
+          className="absolute inset-0 w-full h-full object-cover object-[50%_30%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/10" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 w-full">
           <div className="max-w-xl">
             <p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/80 mb-4">
