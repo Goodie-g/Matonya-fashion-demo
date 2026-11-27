@@ -159,7 +159,7 @@ Commons and are used under their respective licences:
 | Kanga Beach Wrap | [Kanga leso Kenya 01](https://commons.wikimedia.org/wiki/File:Kanga_leso_Kenya_01.jpg) | Avocado isl | CC BY-SA 4.0 |
 | Kanga Beach Wrap | [A woman carries objects on the beaches of Zanzibar](https://commons.wikimedia.org/wiki/File:A_woman_carries_objects_on_the_beaches_of_Zanzibar.jpg) | Stechouse42 | CC BY-SA 4.0 |
 | Kikoi Throw | [Colorful Kikoi Shukas](https://commons.wikimedia.org/wiki/File:Colorful_Kikoi_Shukas.jpg) | Chancebandit | CC BY-SA 4.0 |
-| Kikoi Throw | [KIKOI AND WRAP](https://commons.wikimedia.org/wiki/File:KIKOI_AND_WRAP.JPG) | Selly Awuor | CC BY-SA 4.0 |
+| Kikoi Throw | [Kikoy fabric at the Maasai Market, Nairobi](https://commons.wikimedia.org/wiki/File:Kikoy_fabric_at_the_Maasai_Market_in_Nairobi,_Kenya.jpg) | Laurakomanga | CC BY-SA 4.0 |
 | Beaded Maasai Cuff | [Bracelet 11-o.lau-F180.LA1029](https://commons.wikimedia.org/wiki/File:Bracelet_11-o.lau-F180.LA1029.jpg) | Simon Pierre Barrette | CC BY-SA 4.0 |
 
 ---

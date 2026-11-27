@@ -583,7 +583,7 @@ begin
     array['130 x 180 cm', '150 x 200 cm'],
     array[
       'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Colorful_Kikoi_Shukas.jpg/960px-Colorful_Kikoi_Shukas.jpg',
-      'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/KIKOI_AND_WRAP.JPG/960px-KIKOI_AND_WRAP.JPG'
+      'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Kikoy_fabric_at_the_Maasai_Market_in_Nairobi%2C_Kenya.jpg/960px-Kikoy_fabric_at_the_Maasai_Market_in_Nairobi%2C_Kenya.jpg'
     ],
     'Handwoven kikoi cloth from the East African coast, finished with a hand-knotted fringe. A throw for the sofa, a wrap for the beach, a blanket for Sunday afternoons.',
     array[
